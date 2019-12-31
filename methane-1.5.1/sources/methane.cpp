@@ -32,6 +32,8 @@ bool GLOBAL_SoundEnable = true;
 // Keyboard stuff
 //------------------------------------------------------------------------------
 static int LastKey = 0;
+//#define WINDOW_RESIZE_DEBUG
+
 static CL_DisplayWindow* m_WindowPtr;
 // Joystick stuff
 //#define JOYSTICK_CONSOLE_DEBUG
@@ -68,20 +70,36 @@ public:
 	{
 		LastKey = CL_KEY_ESCAPE;
 	}
-	void on_window_resize(int w, int h)
+	void on_window_resize(int proposedWidth, int proposedHeight)
 	{
-		float aspectRatio = ((float)SCR_WIDTH) / ((float)SCR_HEIGHT);
-		int nextHeight = (int)(((float)w) / aspectRatio);
-
-		char buffer[80];
-		sprintf(buffer, "on_window_resize w: %d h: %d AR: %.2f nextHeight: %d", w, h, aspectRatio, nextHeight);
-		CL_ConsoleLogger logger = CL_ConsoleLogger();
-		logger.log("window", buffer);
-
 		if (m_WindowPtr != NULL)
 		{
-			
-			m_WindowPtr->set_size(w, nextHeight, true);
+			CL_Rect currentRect = m_WindowPtr->get_geometry();
+			float currentWidth = (float)currentRect.get_width();
+			float currentHeight = (float)currentRect.get_height();
+			float targetAspectRatio = ((float)SCR_WIDTH) / ((float)SCR_HEIGHT);
+			int nextWidth = proposedWidth;
+			int nextHeight = proposedHeight;
+
+			float proposedAspectRatio = (float)proposedWidth / (float)proposedHeight;
+			if (proposedAspectRatio > targetAspectRatio)
+			{
+				// Use width as reference for resize
+				nextHeight = (int)(((float)proposedWidth) / targetAspectRatio);
+			} 
+			else
+			{
+				// Use height as reference for resize
+				nextWidth = (int)(((float)proposedHeight) * targetAspectRatio);
+			}
+
+#ifdef WINDOW_RESIZE_DEBUG
+			char buffer[160];
+			sprintf(buffer, "on_window_resize w: %d h: %d targetAR: %.2f proposedAR: %.2f nextWidth: %d nextHeight: %d", proposedWidth, proposedHeight, targetAspectRatio, proposedAspectRatio, nextWidth, nextHeight);
+			CL_ConsoleLogger logger = CL_ConsoleLogger();
+			logger.log("window", buffer);
+#endif
+			m_WindowPtr->set_size(nextWidth, nextHeight, true);
 		}
 	}
 
@@ -281,7 +299,7 @@ public:
 			desc.set_drop_shadow(false);
 			desc.show_border(false);
 			*/
-			desc.set_topmost(true);
+			//desc.set_topmost(true);
 			/*
 			desc.set_decorations(false);
 			desc.set_tool_window(false);*/
