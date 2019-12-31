@@ -32,7 +32,7 @@ bool GLOBAL_SoundEnable = true;
 // Keyboard stuff
 //------------------------------------------------------------------------------
 static int LastKey = 0;
-
+static CL_DisplayWindow* m_WindowPtr;
 // Joystick stuff
 //#define JOYSTICK_CONSOLE_DEBUG
 
@@ -67,6 +67,22 @@ public:
 	void on_window_close()
 	{
 		LastKey = CL_KEY_ESCAPE;
+	}
+	void on_window_resize(int w, int h)
+	{
+		float aspectRatio = ((float)SCR_WIDTH) / ((float)SCR_HEIGHT);
+		int nextHeight = (int)(((float)w) / aspectRatio);
+
+		char buffer[80];
+		sprintf(buffer, "on_window_resize w: %d h: %d AR: %.2f nextHeight: %d", w, h, aspectRatio, nextHeight);
+		CL_ConsoleLogger logger = CL_ConsoleLogger();
+		logger.log("window", buffer);
+
+		if (m_WindowPtr != NULL)
+		{
+			
+			m_WindowPtr->set_size(w, nextHeight, true);
+		}
 	}
 
 	void on_joystick1_axis_move(const CL_InputEvent &axis, const CL_InputState &state)
@@ -270,11 +286,13 @@ public:
 			desc.set_decorations(false);
 			desc.set_tool_window(false);*/
 			CL_DisplayWindow window(desc);
+			m_WindowPtr = &window;
 
 			CMethDoc Game(window);
 
 			// Connect the Window close event
 			CL_Slot slot_quit = window.sig_window_close().connect(this, &SuperMethaneBrothers::on_window_close);
+			CL_Slot slot_resize = window.sig_resize().connect(this, &SuperMethaneBrothers::on_window_resize);
 
                         // Connect a keyboard handler to on_key_down()
 			CL_Slot slot_keyboard_down = (window.get_ic().get_keyboard()).sig_key_down().connect(this, &SuperMethaneBrothers::on_button_press);
@@ -573,7 +591,6 @@ public:
 		return (LastKey != CL_KEY_ESCAPE);
 
 	}
-
 };
 
 // This is the Program class that is called by CL_ClanApplication
