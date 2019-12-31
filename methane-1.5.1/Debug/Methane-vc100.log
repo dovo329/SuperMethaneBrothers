@@ -1,0 +1,47 @@
+﻿Build started 12/31/2019 11:51:21 AM.
+     1>Project "C:\Methane\methane-1.5.1\Methane-vc100.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Methane.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\External-VC10Precompiled-static-mt-Win32\include" /I"..\ClanLib-VC10Precompiled-static-mt-Win32-2.2.6\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D ENABLE_SOUND /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt sources\methane.cpp
+         methane.cpp
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Methane\methane-1.5.1\Debug\Methane.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86" /LIBPATH:"..\ClanLib-VC10Precompiled-static-mt-Win32-2.2.6\lib\Win32" /LIBPATH:"..\External-VC10Precompiled-static-mt-Win32\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Methane.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Methane\methane-1.5.1\Debug\Methane.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Methane\methane-1.5.1\Debug\Methane.lib" /MACHINE:X86 Debug\Methane.exe.embed.manifest.res
+         Debug\baddie.obj
+         Debug\bitdraw.obj
+         Debug\bitgroup.obj
+         Debug\bititem.obj
+         Debug\boss.obj
+         Debug\doc.obj
+         Debug\game.obj
+         Debug\gasobj.obj
+         Debug\gfxoff.obj
+         Debug\global.obj
+         Debug\goodie.obj
+         Debug\mapdata.obj
+         Debug\maps.obj
+         Debug\methane.obj
+         Debug\misc.obj
+         Debug\objlist.obj
+         Debug\player.obj
+         Debug\power.obj
+         Debug\sound.obj
+         Debug\suck.obj
+         Debug\target.obj
+         Debug\weapon.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Methane.exe.embed.manifest" /manifest Debug\Methane.exe.intermediate.manifest
+         All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         Methane-vc100.vcxproj -> C:\Methane\methane-1.5.1\Debug\Methane.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Methane.unsuccessfulbuild".
+         Touching "Debug\Methane.lastbuildstate".
+     1>Done Building Project "C:\Methane\methane-1.5.1\Methane-vc100.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:09.04

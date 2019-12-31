@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Methane-vc90">
+</Property><Property Name="Solution File" Value="C:\Doug\methane-1.5.1\methane-1.5.1\Methane-vc90.sln">
+</Property><Property Name="Date" Value="Monday, December 02, 2019">
+</Property><Property Name="Time" Value="20:09 PM">
+</Property></Properties><Event ErrorLevel="0" Project="Methane-vc90" Source="Methane-vc90.vcproj" Description="Converting project file 'C:\Doug\methane-1.5.1\methane-1.5.1\Methane-vc90.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Methane-vc90" Source="Methane-vc90.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="Methane-vc90" Source="Methane-vc90.vcproj" Description="Done converting to new project file 'C:\Doug\methane-1.5.1\methane-1.5.1\Methane-vc90.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Methane-vc90" Source="Methane-vc90.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Methane-vc90.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Methane-vc90.sln" Description="Converted">
+</Event></UpgradeLog>
